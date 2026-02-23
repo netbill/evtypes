@@ -1,6 +1,10 @@
 package evtypes
 
-import "time"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 const ProfilesTopicV1 = "profiles.v1"
 
@@ -13,6 +17,7 @@ type ProfileUpdatedPayload struct {
 	Pseudonym   *string   `json:"pseudonym,omitempty"`
 	Description *string   `json:"description,omitempty"`
 	AvatarKey   *string   `json:"avatar_key,omitempty"`
+	Version     int       `json:"version"`
 
 	UpdatedAt time.Time `json:"updated_at"`
 }

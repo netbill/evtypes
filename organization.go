@@ -29,6 +29,7 @@ type OrganizationUpdatedPayload struct {
 	IconKey        *string   `json:"icon_key,omitempty"`
 	BannerKey      *string   `json:"banner_key,omitempty"`
 	MaxRoles       uint      `json:"max_roles"`
+	Version        int       `json:"version"`
 	UpdatedAt      time.Time `json:"updated_at"`
 }
 
@@ -43,6 +44,7 @@ const OrganizationActivatedEvent = "organization.status.activated"
 
 type OrganizationActivatedPayload struct {
 	OrganizationID uuid.UUID `json:"organization_id"`
+	OrgVersion     int       `json:"organization_version"`
 	ActivatedAt    time.Time `json:"activated_at"`
 }
 
@@ -50,5 +52,6 @@ const OrganizationDeactivatedEvent = "organization.status.deactivated"
 
 type OrganizationDeactivatedPayload struct {
 	OrganizationID uuid.UUID `json:"organization_id"`
+	OrgVersion     int       `json:"organization_version"`
 	DeactivatedAt  time.Time `json:"deactivated_at"`
 }

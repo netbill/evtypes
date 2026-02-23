@@ -1,6 +1,10 @@
 package evtypes
 
-import "time"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 const AccountsTopicV1 = "accounts.v1"
 
