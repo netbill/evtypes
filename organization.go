@@ -16,7 +16,7 @@ type OrganizationCreatedPayload struct {
 	Name           string    `json:"name"`
 	IconKey        *string   `json:"icon_key,omitempty"`
 	BannerKey      *string   `json:"banner_key,omitempty"`
-	MaxRoles       uint      `json:"max_roles"`
+	MaxRoles       int       `json:"max_roles"`
 	CreatedAt      time.Time `json:"created_at"`
 }
 
