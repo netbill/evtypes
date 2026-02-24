@@ -17,7 +17,7 @@ type ProfileUpdatedPayload struct {
 	Pseudonym   *string   `json:"pseudonym,omitempty"`
 	Description *string   `json:"description,omitempty"`
 	AvatarKey   *string   `json:"avatar_key,omitempty"`
-	Version     int       `json:"version"`
+	Version     int32     `json:"version"`
 
 	UpdatedAt time.Time `json:"updated_at"`
 }
@@ -27,6 +27,7 @@ const ProfileCreatedEvent = "profile.created"
 type ProfileCreatedPayload struct {
 	AccountID uuid.UUID `json:"account_id"`
 	Username  string    `json:"username"`
+	Version   int32     `json:"version"`
 	CreatedAt time.Time `json:"created_at"`
 }
 

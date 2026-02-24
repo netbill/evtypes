@@ -8,7 +8,7 @@ import (
 
 const OrgMembersTopicV1 = "organization.members.v1"
 
-const OrgMemberCreatedEvent = "member.created"
+const OrgMemberCreatedEvent = "organization_member.created"
 
 type OrgMemberCreatedPayload struct {
 	MemberID       uuid.UUID `json:"member_id"`
@@ -17,10 +17,12 @@ type OrgMemberCreatedPayload struct {
 	Head           bool      `json:"head"`
 	Position       *string   `json:"position,omitempty"`
 	Label          *string   `json:"label,omitempty"`
-	CreatedAt      time.Time `json:"created_at"`
+	Version        int32     `json:"version"`
+
+	CreatedAt time.Time `json:"created_at"`
 }
 
-const OrgMemberUpdatedEvent = "member.updated"
+const OrgMemberUpdatedEvent = "organization_member.updated"
 
 type OrgMemberUpdatedPayload struct {
 	MemberID  uuid.UUID `json:"member_id"`
@@ -30,7 +32,7 @@ type OrgMemberUpdatedPayload struct {
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
-const OrgMemberDeletedEvent = "member.deleted"
+const OrgMemberDeletedEvent = "organization_member.deleted"
 
 type OrgMemberDeletedPayload struct {
 	MemberID  uuid.UUID `json:"member_id"`
@@ -39,7 +41,7 @@ type OrgMemberDeletedPayload struct {
 
 // Organization Invites
 
-const OrgInviteCreatedEvent = "invite.created"
+const OrgInviteCreatedEvent = "organization_invite.created"
 
 type OrgInviteCreatedPayload struct {
 	InviteID       uuid.UUID `json:"invite_id"`
@@ -50,21 +52,21 @@ type OrgInviteCreatedPayload struct {
 	CreatedAt      time.Time `json:"created_at"`
 }
 
-const OrgInviteAcceptedEvent = "invite.accepted"
+const OrgInviteAcceptedEvent = "organization_invite.accepted"
 
 type OrgInviteAcceptedPayload struct {
 	InviteID   uuid.UUID `json:"invite_id"`
 	AcceptedAt time.Time `json:"declined_at"`
 }
 
-const OrgInviteDeclinedEvent = "invite.declined"
+const OrgInviteDeclinedEvent = "organization_invite.declined"
 
 type OrgInviteDeclinedPayload struct {
 	InviteID   uuid.UUID `json:"invite_id"`
 	DeclinedAt time.Time `json:"declined_at"`
 }
 
-const OrgInviteDeletedEvent = "invite.deleted"
+const OrgInviteDeletedEvent = "organization_invite.deleted"
 
 type OrgInviteDeletedPayload struct {
 	InvitedID uuid.UUID `json:"invite_id"`
