@@ -8,6 +8,15 @@ import (
 
 const ProfilesTopicV1 = "profiles.v1"
 
+const ProfileCreatedEvent = "profile.created"
+
+type ProfileCreatedPayload struct {
+	AccountID uuid.UUID `json:"account_id"`
+	Username  string    `json:"username"`
+
+	CreatedAt time.Time `json:"created_at"`
+}
+
 const ProfileUpdatedEvent = "profile.updated"
 
 type ProfileUpdatedPayload struct {
@@ -17,18 +26,9 @@ type ProfileUpdatedPayload struct {
 	Pseudonym   *string   `json:"pseudonym,omitempty"`
 	Description *string   `json:"description,omitempty"`
 	AvatarKey   *string   `json:"avatar_key,omitempty"`
-	Version     int32     `json:"version"`
 
-	UpdatedAt time.Time `json:"updated_at"`
-}
-
-const ProfileCreatedEvent = "profile.created"
-
-type ProfileCreatedPayload struct {
-	AccountID uuid.UUID `json:"account_id"`
-	Username  string    `json:"username"`
 	Version   int32     `json:"version"`
-	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 const ProfileDeletedEvent = "profile.deleted"

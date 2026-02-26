@@ -16,8 +16,8 @@ type OrganizationCreatedPayload struct {
 	Name           string    `json:"name"`
 	IconKey        *string   `json:"icon_key,omitempty"`
 	BannerKey      *string   `json:"banner_key,omitempty"`
-	Version        int32     `json:"version"`
-	CreatedAt      time.Time `json:"created_at"`
+
+	CreatedAt time.Time `json:"created_at"`
 }
 
 const OrganizationUpdatedEvent = "organization.updated"
@@ -28,8 +28,9 @@ type OrganizationUpdatedPayload struct {
 	Name           string    `json:"name"`
 	IconKey        *string   `json:"icon_key,omitempty"`
 	BannerKey      *string   `json:"banner_key,omitempty"`
-	Version        int32     `json:"version"`
-	UpdatedAt      time.Time `json:"updated_at"`
+
+	Version   int32     `json:"version"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 const OrganizationDeletedEvent = "organization.deleted"
