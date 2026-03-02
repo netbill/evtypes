@@ -22,11 +22,11 @@ type PlaceCreatedPayload struct {
 	Address  string    `json:"address"`
 	Name     string    `json:"name"`
 
-	Description *string `json:"description"`
-	IconKey     *string `json:"icon_key"`
-	BannerKey   *string `json:"banner_key"`
-	Website     *string `json:"website"`
-	Phone       *string `json:"phone"`
+	Description *string `json:"description,omitempty"`
+	IconKey     *string `json:"icon_key,omitempty"`
+	BannerKey   *string `json:"banner_key,omitempty"`
+	Website     *string `json:"website,omitempty"`
+	Phone       *string `json:"phone,omitempty"`
 
 	CreatedAt time.Time `json:"created_at"`
 }
@@ -43,11 +43,11 @@ type PlaceUpdatedPayload struct {
 	Address  string `json:"address"`
 	Name     string `json:"name"`
 
-	Description *string `json:"description"`
-	IconKey     *string `json:"icon_key"`
-	BannerKey   *string `json:"banner_key"`
-	Website     *string `json:"website"`
-	Phone       *string `json:"phone"`
+	Description *string `json:"description,omitempty"`
+	IconKey     *string `json:"icon_key,omitempty"`
+	BannerKey   *string `json:"banner_key,omitempty"`
+	Website     *string `json:"website,omitempty"`
+	Phone       *string `json:"phone,omitempty"`
 
 	Version   int32     `json:"version"`
 	UpdatedAt time.Time `json:"updated_at"`

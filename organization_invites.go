@@ -17,13 +17,6 @@ type OrgInviteCreatedPayload struct {
 	CreatedAt      time.Time `json:"created_at"`
 }
 
-const OrgInviteDeletedEvent = "organization_invite.deleted"
-
-type OrgInviteDeletedPayload struct {
-	InvitedID uuid.UUID `json:"invite_id"`
-	DeletedAt time.Time `json:"deleted_at"`
-}
-
 const OrgInviteAcceptedEvent = "organization_invite.accepted"
 
 type OrgInviteAcceptedPayload struct {
@@ -36,4 +29,11 @@ const OrgInviteDeclinedEvent = "organization_invite.declined"
 type OrgInviteDeclinedPayload struct {
 	InviteID   uuid.UUID `json:"invite_id"`
 	DeclinedAt time.Time `json:"declined_at"`
+}
+
+const OrgInviteCancelledEvent = "organization_invite.cancelled"
+
+type OrgInviteCancelledPayload struct {
+	InviteID    uuid.UUID `json:"invite_id"`
+	CancelledAt time.Time `json:"cancelled_at"`
 }

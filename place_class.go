@@ -6,7 +6,7 @@ import (
 	"github.com/google/uuid"
 )
 
-const PlaceClassesTopicV1 = "place.classes.v1"
+const PlaceClassesTopicV1 = "place_classes.v1"
 
 const PlaceClassCreatedEvent = "place_class.created"
 
