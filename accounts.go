@@ -6,31 +6,45 @@ import (
 	"github.com/google/uuid"
 )
 
+type Account struct {
+	ID       uuid.UUID `json:"id"`
+	Username string    `json:"username"`
+	Role     string    `json:"role"`
+	Version  int32     `json:"version"`
+
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at,omitempty"`
+}
+
+type AccountEmail struct {
+	AccountID uuid.UUID  `json:"account_id"`
+	Email     string     `json:"email"`
+	Verified  bool       `json:"verified"`
+	Version   int32      `json:"version"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt *time.Time `json:"deleted_at,omitempty"`
+}
+
 const AccountsTopicV1 = "accounts.v1"
 
 const AccountCreatedEvent = "account.created"
 
 type AccountCreatedPayload struct {
-	AccountID uuid.UUID `json:"account_id"`
-	Username  string    `json:"username"`
-	Role      string    `json:"role"`
-
-	CreatedAt time.Time `json:"created_at"`
+	Account      Account      `json:"account"`
+	AccountEmail AccountEmail `json:"account_email"`
 }
 
 const AccountUsernameUpdatedEvent = "account.username.updated"
 
 type AccountUsernameUpdatedPayload struct {
-	AccountID uuid.UUID `json:"account_id"`
-	Username  string    `json:"username"`
-	Version   int32     `json:"version"`
-
-	UpdatedAt time.Time `json:"updated_at"`
+	Account Account `json:"account"`
 }
 
 const AccountDeletedEvent = "account.deleted"
 
 type AccountDeletedPayload struct {
-	AccountID uuid.UUID `json:"account_id"`
-	DeletedAt time.Time `json:"deleted_at"`
+	Account      Account      `json:"account"`
+	AccountEmail AccountEmail `json:"account_email"`
 }
