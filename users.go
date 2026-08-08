@@ -20,7 +20,7 @@ type User struct {
 }
 
 type UserEmail struct {
-	UserID    uuid.UUID  `json:"User_id"`
+	UserID    uuid.UUID  `json:"user_id"`
 	Email     string     `json:"email"`
 	Verified  bool       `json:"verified"`
 	Version   int32      `json:"version"`
@@ -29,18 +29,18 @@ type UserEmail struct {
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 }
 
-const UsersTopicV1 = "Users.v1"
+const UsersTopicV1 = "users.v1"
 
-const UserCreatedEvent = "User.created"
+const UserCreatedEvent = "user.created"
 
 type UserCreatedPayload struct {
-	User      User      `json:"User"`
-	UserEmail UserEmail `json:"User_email"`
+	User      User      `json:"user"`
+	UserEmail UserEmail `json:"user_email"`
 }
 
-const UserDeletedEvent = "User.deleted"
+const UserDeletedEvent = "user.deleted"
 
 type UserDeletedPayload struct {
-	User      User      `json:"User"`
-	UserEmail UserEmail `json:"User_email"`
+	User      User      `json:"user"`
+	UserEmail UserEmail `json:"user_email"`
 }
