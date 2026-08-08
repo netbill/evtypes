@@ -7,10 +7,9 @@ import (
 )
 
 type Account struct {
-	ID       uuid.UUID `json:"id"`
-	Username string    `json:"username"`
-	Role     string    `json:"role"`
-	Version  int32     `json:"version"`
+	ID      uuid.UUID `json:"id"`
+	Role    string    `json:"role"`
+	Version int32     `json:"version"`
 
 	CreatedAt time.Time  `json:"created_at"`
 	UpdatedAt time.Time  `json:"updated_at"`
@@ -34,12 +33,6 @@ const AccountCreatedEvent = "account.created"
 type AccountCreatedPayload struct {
 	Account      Account      `json:"account"`
 	AccountEmail AccountEmail `json:"account_email"`
-}
-
-const AccountUsernameUpdatedEvent = "account.username.updated"
-
-type AccountUsernameUpdatedPayload struct {
-	Account Account `json:"account"`
 }
 
 const AccountDeletedEvent = "account.deleted"
