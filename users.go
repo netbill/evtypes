@@ -38,6 +38,12 @@ type UserCreatedPayload struct {
 	UserEmail UserEmail `json:"user_email"`
 }
 
+const UserUpdatedEvent = "user.updated"
+
+type UserUpdatedPayload struct {
+	User User `json:"user"`
+}
+
 const UserDeletedEvent = "user.deleted"
 
 type UserDeletedPayload struct {
